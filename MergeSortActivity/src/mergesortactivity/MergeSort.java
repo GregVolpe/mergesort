@@ -9,92 +9,56 @@ package mergesortactivity;
  * This class sorts an array, using the merge sort algorithm.
  */
 public class MergeSort {
-
-    private int swaps = 0;
-    private int comparisons = 0;
-    private int[] a,output;
-
-    /**
-     * Constructs a merge sorter.
-     *
-     * @param anArray the array to sort
-     */
-    public MergeSort(int[] anArray) {
-        a = anArray;
-        output= new int[a.length];
-
+    private int comparisons,swaps;
+    public MergeSort()
+    {
+        //empty constructor
     }
 
-    /**
-     * Sorts the array managed by this merge sorter.
-     */
-    public void sort() {
-        if (a.length <= 1) {
-            return;
+    public static int[] mergesort(int[] data, int low, int high) {
+        int middle = (high + low) / 2;
+        if (middle == low) {
+            int[] data2 = new int[1];
+            data2[0] = data[middle];
+            return data2;
+        } else {
+            int[] firstHalfSorted = mergesort(data, low, middle);
+            int[] secondHalfSorted = mergesort(data, middle + 1, high);
+            return (merge(firstHalfSorted, secondHalfSorted));
         }
-        int[] first = new int[a.length / 2];
-        int[] second = new int[a.length - first.length];
-        // Copy the first half of a into first, the second half into second
-        for (int i = 0; i < first.length; i++) {
-            first[i] = a[i];
-            
-        }
-        for (int i = 0; i < second.length; i++) {
-            second[i] = a[first.length + i];
-            
-        }
-        MergeSort firstSorter = new MergeSort(first);
-        MergeSort secondSorter = new MergeSort(second);
-        firstSorter.sort();
-        secondSorter.sort();
-        merge(first, second);
     }
 
-    /**
-     * Merges two sorted arrays into the array managed by this merge sorter.
-     *
-     * @param first the first sorted array
-     * @param second the second sorted array
-     */
-
-    private void merge(int[] first, int[] second) {
-        int iFirst = 0; // Next element to consider in the first array
-        int iSecond = 0; // Next element to consider in the second array
-        int j = 0; // Next open position in a
-
-      // As long as neither iFirst nor iSecond is past the end, move
-        // the smaller element into a
-        while (iFirst < first.length && iSecond < second.length) {
-            if (first[iFirst] < second[iSecond]) {
-                a[j] = first[iFirst];
-                iFirst++;
-                this.increaseSwaps();
-            } else {
-                a[j] = second[iSecond];
-                iSecond++;
-                this.increaseSwaps();
+    public static int[] merge(int[] firstHalfSorted, int[] secondHalfSorted) {
+        int[] SortedArray = new int[firstHalfSorted.length + secondHalfSorted.length];
+        int m = 0;
+        int n = 0;
+        int count = 0;
+        while (m < firstHalfSorted.length && n < secondHalfSorted.length) {
+            if (firstHalfSorted[m] > secondHalfSorted[n]) {
+                SortedArray[count] = secondHalfSorted[n];
+                count++;
+                n++;
+            } else if (firstHalfSorted[m] < secondHalfSorted[n]) {
+                SortedArray[count] = firstHalfSorted[m];
+                count++;
+                m++;
             }
-            j++;
-            this.increaseComparison();
         }
-
-      // Note that only one of the two loops below copies entries
-        // Copy any remaining entries of the first array
-        while (iFirst < first.length) {
-            a[j] = first[iFirst];
-            iFirst++;
-            j++;
-            //this.increaseSwaps();
-            //this.increaseComparison();
+        if (m != firstHalfSorted.length) {
+            while (m < firstHalfSorted.length) {
+                SortedArray[count] = firstHalfSorted[m];
+                count++;
+                m++;
+            }
         }
-        // Copy any remaining entries of the second half
-        while (iSecond < second.length) {
-            a[j] = second[iSecond];
-            iSecond++;
-            j++;
-            //this.increaseSwaps();
-           // this.increaseComparison();
+        if (n != secondHalfSorted.length) {
+            while (n < secondHalfSorted.length) {
+                SortedArray[count] = secondHalfSorted[n];
+                count++;
+                n++;
+            }
         }
+        return SortedArray;
     }
 
     private void increaseComparison() {
@@ -112,8 +76,8 @@ public class MergeSort {
     public int getComparisons() {
         return this.comparisons;
     }
-    public void clearCounters()
-    {
+
+    public void clearCounters() {
         this.swaps = 0;
         this.comparisons = 0;
     }
