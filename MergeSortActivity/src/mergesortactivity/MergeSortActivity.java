@@ -33,71 +33,24 @@ public class MergeSortActivity {
         System.out.println("\n");
         MergerHelper.printArray(numsThousand);
 
+        MergeSort myMerge = new MergeSort();
+        MergeSort myMerge2 = new MergeSort();
+        MergeSort myMerge3 = new MergeSort();
+        int[] numsTenSorted = myMerge.sort(numsTen, 0, numsTen.length-1);
+        int[] numsHundredSorted = myMerge2.sort(numsHundred, 0, numsHundred.length - 1);
+        int[] numsThousandSorted = myMerge3.sort(numsThousand, 0, numsThousand.length-1);
+
+        System.out.println("\n");
+        MergerHelper.printArray(numsTenSorted);
         /*
-         MergeSort myMergeTen = new MergeSort(numsTen);
-         MergeSort myMergeHundred = new MergeSort(numsHundred);
-         MergeSort myMergeThousand = new MergeSort(numsThousand);
-
-         myMergeTen.sort();
-         myMergeHundred.sort();
-         myMergeThousand.sort();
-         System.out.println("\n");
-         System.out.println("Ten");
-         // MergerHelper.printArray(numsTen);
-         System.out.println("Swaps:");
-         System.out.println(myMergeTen.getSwaps());
-         System.out.println("Comparisons:");
-         System.out.println(myMergeTen.getComparisons());
-         System.out.println("\n");
-
-         System.out.println("Hundred");
-         // MergerHelper.printArray(numsHundred);
-         System.out.println("Swaps:");
-         System.out.println(myMergeHundred.getSwaps());
-         System.out.println("Comparisons:");
-         System.out.println(myMergeHundred.getComparisons());
-         System.out.println("\n");
-        
-         System.out.println("Thousand");
-         // MergerHelper.printArray(numsThousand);
-         System.out.println("Swaps:");
-         System.out.println(myMergeThousand.getSwaps());
-         System.out.println("Comparisons:");
-         System.out.println(myMergeThousand.getComparisons());
-
-         myMergeTen.clearCounters();
-         myMergeHundred.clearCounters();
-         myMergeThousand.clearCounters();
-
-         myMergeTen.sort();
-         myMergeHundred.sort();
-         myMergeThousand.sort();
-        
-        
-         System.out.println("\n");
-         // MergerHelper.printArray(numsTen);
-         System.out.println("Ten");
-         System.out.println("Swaps:");
-         System.out.println(myMergeTen.getSwaps());
-         System.out.println("Comparisons:");
-         System.out.println(myMergeTen.getComparisons());
-         System.out.println("\n");
-
-         // MergerHelper.printArray(numsHundred);
-         System.out.println("Hundred");
-         System.out.println("Swaps:");
-         System.out.println(myMergeHundred.getSwaps());
-         System.out.println("Comparisons:");
-         System.out.println(myMergeHundred.getComparisons());
-         System.out.println("\n");
-
-         // MergerHelper.printArray(numsThousand);
-         System.out.println("Thousand");
-         System.out.println("Swaps:");
-         System.out.println(myMergeThousand.getSwaps());
-         System.out.println("Comparisons:");
-         System.out.println(myMergeThousand.getComparisons());
-         */
+        System.out.println("\n");
+        MergerHelper.printArray(numsHundredSorted);
+        System.out.println("\n");
+        MergerHelper.printArray(numsThousandSorted);
+        */
+        System.out.println("Counter 10: "+ myMerge.getCounter());
+        System.out.println("Counter 100: "+ myMerge2.getCounter());
+        System.out.println("Counter 1000: "+ myMerge3.getCounter());
     }
 
 }

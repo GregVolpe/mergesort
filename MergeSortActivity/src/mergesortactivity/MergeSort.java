@@ -9,26 +9,27 @@ package mergesortactivity;
  * This class sorts an array, using the merge sort algorithm.
  */
 public class MergeSort {
-    private int comparisons,swaps;
+    
+    private int comparisons,swaps,counter;
     public MergeSort()
     {
-        //empty constructor
+        counter =comparisons = swaps=0;
     }
 
-    public static int[] mergesort(int[] data, int low, int high) {
+    public int[] sort(int[] data, int low, int high) {
         int middle = (high + low) / 2;
-        if (middle == low) {
+        if (low == high) {
             int[] data2 = new int[1];
             data2[0] = data[middle];
             return data2;
         } else {
-            int[] firstHalfSorted = mergesort(data, low, middle);
-            int[] secondHalfSorted = mergesort(data, middle + 1, high);
+            int[] firstHalfSorted = sort(data, low, middle);
+            int[] secondHalfSorted = sort(data, middle + 1, high);
             return (merge(firstHalfSorted, secondHalfSorted));
         }
     }
 
-    public static int[] merge(int[] firstHalfSorted, int[] secondHalfSorted) {
+    public int[] merge(int[] firstHalfSorted, int[] secondHalfSorted) {
         int[] SortedArray = new int[firstHalfSorted.length + secondHalfSorted.length];
         int m = 0;
         int n = 0;
@@ -38,11 +39,12 @@ public class MergeSort {
                 SortedArray[count] = secondHalfSorted[n];
                 count++;
                 n++;
-            } else if (firstHalfSorted[m] < secondHalfSorted[n]) {
+            } else if (firstHalfSorted[m] <= secondHalfSorted[n]) {
                 SortedArray[count] = firstHalfSorted[m];
                 count++;
                 m++;
             }
+            counter++;
         }
         if (m != firstHalfSorted.length) {
             while (m < firstHalfSorted.length) {
@@ -60,25 +62,10 @@ public class MergeSort {
         }
         return SortedArray;
     }
-
-    private void increaseComparison() {
-        this.comparisons++;
+    
+    public int getCounter()
+    {
+        return this.counter;
     }
 
-    private void increaseSwaps() {
-        this.swaps++;
-    }
-
-    public int getSwaps() {
-        return this.swaps;
-    }
-
-    public int getComparisons() {
-        return this.comparisons;
-    }
-
-    public void clearCounters() {
-        this.swaps = 0;
-        this.comparisons = 0;
-    }
 }
