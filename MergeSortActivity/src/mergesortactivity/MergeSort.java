@@ -12,7 +12,7 @@ public class MergeSort {
 
     private int swaps = 0;
     private int comparisons = 0;
-    private int[] a;
+    private int[] a,output;
 
     /**
      * Constructs a merge sorter.
@@ -21,6 +21,7 @@ public class MergeSort {
      */
     public MergeSort(int[] anArray) {
         a = anArray;
+        output= new int[a.length];
 
     }
 
@@ -36,11 +37,11 @@ public class MergeSort {
         // Copy the first half of a into first, the second half into second
         for (int i = 0; i < first.length; i++) {
             first[i] = a[i];
-            this.increaseComparison();
+            
         }
         for (int i = 0; i < second.length; i++) {
             second[i] = a[first.length + i];
-            this.increaseComparison();
+            
         }
         MergeSort firstSorter = new MergeSort(first);
         MergeSort secondSorter = new MergeSort(second);
@@ -55,6 +56,7 @@ public class MergeSort {
      * @param first the first sorted array
      * @param second the second sorted array
      */
+
     private void merge(int[] first, int[] second) {
         int iFirst = 0; // Next element to consider in the first array
         int iSecond = 0; // Next element to consider in the second array
@@ -66,14 +68,14 @@ public class MergeSort {
             if (first[iFirst] < second[iSecond]) {
                 a[j] = first[iFirst];
                 iFirst++;
-                //this.increaseSwaps();
+                this.increaseSwaps();
             } else {
                 a[j] = second[iSecond];
                 iSecond++;
-                //this.increaseSwaps();
+                this.increaseSwaps();
             }
             j++;
-            //this.increaseComparison();
+            this.increaseComparison();
         }
 
       // Note that only one of the two loops below copies entries
