@@ -10,13 +10,14 @@ package mergesortactivity;
  */
 public class MergeSort {
 
-    private int counter;
+    private int counter, timeCounter;
 
     public MergeSort() {
-        counter= 1;
+        timeCounter = counter= 1;
     }
 
     public int[] sort(int[] data, int low, int high) {
+        //timeCounter++;
         int middle = (high + low) / 2;
         if (low == high) {
             int[] data2 = new int[1];
@@ -48,6 +49,7 @@ public class MergeSort {
                 count++;
                 m++;
             }
+            timeCounter++;
         }
         if (m != firstHalfSorted.length) {
             while (m < firstHalfSorted.length) {
@@ -70,6 +72,8 @@ public class MergeSort {
         return this.counter;
     }
     
-    public void clearCounter(){this.counter = 0;}
+    public void clearCounter(){this.counter = 0; this.timeCounter =0;}
+    
+    public int getTimeCounter(){return this.timeCounter;}
 
 }
