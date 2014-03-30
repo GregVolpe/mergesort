@@ -5,11 +5,6 @@
  */
 package mergesortactivity;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Random;
-
 /**
  *
  * @author HEX
@@ -39,14 +34,17 @@ public class MergeSortActivity {
             MergeSort myMerge3 = new MergeSort();
             int[] numsTenSorted = myMerge.sort(numsTen, 0, numsTen.length - 1);
             System.out.println("Counter 10: " + myMerge.getCounter());
+            System.out.println("Time Counter 10: " + myMerge.getTimeCounter());
             myMerge.clearCounter();
             //int[] numsHundredSorted = myMerge2.sort(numsHundred, 0, numsHundred.length - 1);
             //int[] numsThousandSorted = myMerge3.sort(numsThousand, 0, numsThousand.length-1);
             int[] numsHundredSorted = myMerge.sort(numsHundred, 0, numsHundred.length - 1);
             System.out.println("Counter 100: " + myMerge.getCounter());
+            System.out.println("Time Counter 100: " + myMerge.getTimeCounter());
             myMerge.clearCounter();
             int[] numsThousandSorted = myMerge.sort(numsThousand, 0, numsThousand.length - 1);
-            System.out.println("Counter 100: " + myMerge.getCounter());
+            System.out.println("Counter 1000: " + myMerge.getCounter());
+            System.out.println("Time Counter 1000: " + myMerge.getTimeCounter());
             myMerge.clearCounter();
             /*
              //System.out.println("\n");
@@ -60,7 +58,7 @@ public class MergeSortActivity {
              //System.out.println("Counter 100: "+ myMerge2.getCounter());
              //System.out.println("Counter 1000: "+ myMerge3.getCounter());
              */
-
+            System.out.println("\n");
             myMerge.sort(numsThousandSorted, 0, numsThousandSorted.length - 1);
             System.out.println("Counter Sorted 1000: " + myMerge.getCounter());
         }
