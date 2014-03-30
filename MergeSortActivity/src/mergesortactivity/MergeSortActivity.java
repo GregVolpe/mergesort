@@ -36,13 +36,16 @@ public class MergeSortActivity {
             System.out.println("Counter 10: " + myMerge.getCounter());
             System.out.println("Time Counter 10: " + myMerge.getTimeCounter());
             myMerge.clearCounter();
-            //int[] numsHundredSorted = myMerge2.sort(numsHundred, 0, numsHundred.length - 1);
-            //int[] numsThousandSorted = myMerge3.sort(numsThousand, 0, numsThousand.length-1);
+            //int[] numsHundredSorted = myMerge2.sort(numsHundred, 0, 
+            //      numsHundred.length - 1);
+            //int[] numsThousandSorted = myMerge3.sort(numsThousand, 0, 
+            //      numsThousand.length-1);
             int[] numsHundredSorted = myMerge.sort(numsHundred, 0, numsHundred.length - 1);
             System.out.println("Counter 100: " + myMerge.getCounter());
             System.out.println("Time Counter 100: " + myMerge.getTimeCounter());
             myMerge.clearCounter();
-            int[] numsThousandSorted = myMerge.sort(numsThousand, 0, numsThousand.length - 1);
+            int[] numsThousandSorted = myMerge.sort(numsThousand, 0, 
+                    numsThousand.length - 1);
             System.out.println("Counter 1000: " + myMerge.getCounter());
             System.out.println("Time Counter 1000: " + myMerge.getTimeCounter());
             myMerge.clearCounter();

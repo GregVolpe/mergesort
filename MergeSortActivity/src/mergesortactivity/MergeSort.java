@@ -35,7 +35,8 @@ public class MergeSort {
     }
 
     public int[] merge(int[] firstHalfSorted, int[] secondHalfSorted) {
-        int[] SortedArray = new int[firstHalfSorted.length + secondHalfSorted.length];
+        int[] SortedArray = new int[firstHalfSorted.length + 
+                secondHalfSorted.length];
         int m = 0;
         int n = 0;
         int count = 0;
