@@ -5,6 +5,9 @@
  */
 package mergesortactivity;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Random;
 
 /**
@@ -37,7 +40,8 @@ public class MergeSortActivity {
         myMergeTen.sort();
         myMergeHundred.sort();
         myMergeThousand.sort();
-
+        System.out.println("\n");
+        System.out.println("Ten");
         // MergerHelper.printArray(numsTen);
         System.out.println("Swaps:");
         System.out.println(myMergeTen.getSwaps());
@@ -45,28 +49,33 @@ public class MergeSortActivity {
         System.out.println(myMergeTen.getComparisons());
         System.out.println("\n");
 
+        System.out.println("Hundred");
         // MergerHelper.printArray(numsHundred);
         System.out.println("Swaps:");
         System.out.println(myMergeHundred.getSwaps());
         System.out.println("Comparisons:");
         System.out.println(myMergeHundred.getComparisons());
         System.out.println("\n");
-
+        
+        System.out.println("Thousand");
         // MergerHelper.printArray(numsThousand);
         System.out.println("Swaps:");
         System.out.println(myMergeThousand.getSwaps());
         System.out.println("Comparisons:");
         System.out.println(myMergeThousand.getComparisons());
-        
+
         myMergeTen.clearCounters();
         myMergeHundred.clearCounters();
         myMergeThousand.clearCounters();
-        
+
         myMergeTen.sort();
         myMergeHundred.sort();
         myMergeThousand.sort();
-
+        
+        
+        System.out.println("\n");
         // MergerHelper.printArray(numsTen);
+        System.out.println("Ten");
         System.out.println("Swaps:");
         System.out.println(myMergeTen.getSwaps());
         System.out.println("Comparisons:");
@@ -74,6 +83,7 @@ public class MergeSortActivity {
         System.out.println("\n");
 
         // MergerHelper.printArray(numsHundred);
+        System.out.println("Hundred");
         System.out.println("Swaps:");
         System.out.println(myMergeHundred.getSwaps());
         System.out.println("Comparisons:");
@@ -81,6 +91,7 @@ public class MergeSortActivity {
         System.out.println("\n");
 
         // MergerHelper.printArray(numsThousand);
+        System.out.println("Thousand");
         System.out.println("Swaps:");
         System.out.println(myMergeThousand.getSwaps());
         System.out.println("Comparisons:");
