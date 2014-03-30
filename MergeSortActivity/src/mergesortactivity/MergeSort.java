@@ -9,11 +9,11 @@ package mergesortactivity;
  * This class sorts an array, using the merge sort algorithm.
  */
 public class MergeSort {
-    
-    private int comparisons,swaps,counter;
-    public MergeSort()
-    {
-        counter =comparisons = swaps=0;
+
+    private int counter;
+
+    public MergeSort() {
+        counter= 1;
     }
 
     public int[] sort(int[] data, int low, int high) {
@@ -21,11 +21,15 @@ public class MergeSort {
         if (low == high) {
             int[] data2 = new int[1];
             data2[0] = data[middle];
+            counter++;
             return data2;
         } else {
             int[] firstHalfSorted = sort(data, low, middle);
+            counter++;
             int[] secondHalfSorted = sort(data, middle + 1, high);
+            counter++;
             return (merge(firstHalfSorted, secondHalfSorted));
+            
         }
     }
 
@@ -44,7 +48,6 @@ public class MergeSort {
                 count++;
                 m++;
             }
-            counter++;
         }
         if (m != firstHalfSorted.length) {
             while (m < firstHalfSorted.length) {
@@ -62,10 +65,11 @@ public class MergeSort {
         }
         return SortedArray;
     }
-    
-    public int getCounter()
-    {
+
+    public int getCounter() {
         return this.counter;
     }
+    
+    public void clearCounter(){this.counter = 0;}
 
 }
