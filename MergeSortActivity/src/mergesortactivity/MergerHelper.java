@@ -35,8 +35,32 @@ public class MergerHelper {
             }
         }
     }
-    public static void fillDescending(int[] nums)
-    {
+
+    public static void fillDescending(int[] nums) {
         int size = nums.length;
+        int temp = size;
+        for (int i = 0; i < size; i++) {
+            nums[i] = temp;
+            temp--;
+        }
+        //printArray(nums);
+    }
+
+    public static void fillAscending(int[] nums) {
+        int size = nums.length;
+        for (int i = 0; i < size; i++) {
+            nums[i] = i;
+
+        }
+        //printArray(nums);
+    }
+    
+    public static double expectedTime(int num)
+    {
+        double result=0;
+        
+        result = (num)*(Math.log(num));
+        return result;
+        
     }
 }

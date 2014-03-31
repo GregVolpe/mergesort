@@ -18,17 +18,19 @@ public class MergeSortActivity {
 
         //randomSets();
         TenToOneThousand();
+        randomSets(10);
     }
 
-    private static void randomSets() {
+    private static void randomSets(int num) {
         MergeSort myMerge = new MergeSort();
-        int[] counters = new int[10];
-        int[] listSizes = new int[10];
-        int[][] lists = new int[10][];
+        int[] counters = new int[num];
+        int[] listSizes = new int[num];
+        int[][] lists = new int[num][];
+
         MergerHelper.RandomNumber(listSizes);
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < num; i++) {
             lists[i] = new int[listSizes[i]];
-            //int[] tempList = new int[listSizes[i]];
+
             MergerHelper.RandomNumber(lists[i]);
 
             myMerge.sort(lists[i], 0, lists[i].length - 1, 0);
@@ -37,8 +39,17 @@ public class MergeSortActivity {
             myMerge.clearCounter();
             System.out.println("Input size: " + listSizes[i]);
             System.out.println("Counter = " + counters[i]);
-
         }
+        double averageCounter = 0;
+        double inputSizes = 0;
+        for (int i = 0; i < counters.length; i++) {
+            averageCounter += (double) counters[i];
+            inputSizes += (double) listSizes[i];
+        }
+        inputSizes /= num;
+        averageCounter /= num;
+        System.out.println("Average Counter = "+ averageCounter);
+        System.out.println("Expected Average = "+ MergerHelper.expectedTime((int)inputSizes));
     }
 
     private static void TenToOneThousand() {
@@ -51,42 +62,70 @@ public class MergeSortActivity {
         MergerHelper.RandomNumber(numsHundred);
         MergerHelper.RandomNumber(numsThousand);
 
+        //Create merger
         MergeSort myMerge = new MergeSort();
-        MergeSort myMerge2 = new MergeSort();
-        MergeSort myMerge3 = new MergeSort();
-       
+
         int[] numsTenSorted = myMerge.sort(numsTen, 0,
                 numsTen.length - 1, 0);
         System.out.println("Counter 10: " + myMerge.getCounter());
+        System.out.println("Expected: " + MergerHelper.expectedTime(10));
         myMerge.clearCounter();
-        
+
         int[] numsHundredSorted = myMerge.sort(numsHundred, 0,
                 numsHundred.length - 1, 0);
         System.out.println("Counter 100: " + myMerge.getCounter());
+        System.out.println("Expected: " + MergerHelper.expectedTime(100));
         myMerge.clearCounter();
-        
+
         int[] numsThousandSorted = myMerge.sort(numsThousand, 0,
                 numsThousand.length - 1, 0);
         System.out.println("Counter 1000: " + myMerge.getCounter());
+        System.out.println("Expected: " + MergerHelper.expectedTime(1000));
         myMerge.clearCounter();
         System.out.println("\n");
-        
+
+        MergerHelper.fillAscending(numsTenSorted);
+        MergerHelper.fillAscending(numsHundredSorted);
+        MergerHelper.fillAscending(numsThousandSorted);
+
         myMerge.sort(numsTenSorted, 0,
                 numsTenSorted.length - 1, 0);
-        System.out.println("Counter Sorted Ascending 10: " + 
-                myMerge.getCounter());
+        System.out.println("Counter Sorted Ascending 10: "
+                + myMerge.getCounter());
         myMerge.clearCounter();
-        
+
         myMerge.sort(numsHundredSorted, 0,
                 numsHundredSorted.length - 1, 0);
-        System.out.println("Counter Sorted Ascending 100: " + 
-                myMerge.getCounter());
+        System.out.println("Counter Sorted Ascending 100: "
+                + myMerge.getCounter());
         myMerge.clearCounter();
-        
+
         myMerge.sort(numsThousandSorted, 0,
                 numsThousandSorted.length - 1, 0);
-        System.out.println("Counter Sorted Ascending 1000: " + 
-                myMerge.getCounter());
+        System.out.println("Counter Sorted Ascending 1000: "
+                + myMerge.getCounter());
+        myMerge.clearCounter();
+
+        MergerHelper.fillDescending(numsTenSorted);
+        MergerHelper.fillDescending(numsHundredSorted);
+        MergerHelper.fillDescending(numsThousandSorted);
+
+        myMerge.sort(numsTenSorted, 0,
+                numsTenSorted.length - 1, 0);
+        System.out.println("Counter Sorted Descending 10: "
+                + myMerge.getCounter());
+        myMerge.clearCounter();
+
+        myMerge.sort(numsHundredSorted, 0,
+                numsHundredSorted.length - 1, 0);
+        System.out.println("Counter Sorted Descending 100: "
+                + myMerge.getCounter());
+        myMerge.clearCounter();
+
+        myMerge.sort(numsThousandSorted, 0,
+                numsThousandSorted.length - 1, 0);
+        System.out.println("Counter Sorted Descending 1000: "
+                + myMerge.getCounter());
         myMerge.clearCounter();
     }
 
