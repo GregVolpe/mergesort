@@ -35,4 +35,8 @@ public class MergerHelper {
             }
         }
     }
+    public static void fillDescending(int[] nums)
+    {
+        int size = nums.length;
+    }
 }
