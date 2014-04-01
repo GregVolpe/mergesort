@@ -5,14 +5,9 @@
  */
 package mergesortactivity;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 
 /**
  *
@@ -23,12 +18,12 @@ public class MergeFrame extends javax.swing.JFrame {
     /**
      * Creates new form MergeFrame
      */
-    public MergeFrame(){
-        
-            initComponents();
-            //jPanel1 = new ImagePanel();
-            //jPanel1.setVisible(true);
-            
+    public MergeFrame() {
+
+        initComponents();
+        //jPanel1 = new ImagePanel();
+        //jPanel1.setVisible(true);
+
     }
 
     /**
@@ -126,14 +121,30 @@ public class MergeFrame extends javax.swing.JFrame {
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
         // TODO add your handling code here:
+        TrollForm form = new TrollForm();
+        form.setVisible(true);
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new TrollForm().setVisible(true);
+
+            }
+        });
+        try {
+
+            TimeUnit.SECONDS.sleep(2);
+
+        } catch (InterruptedException e) {
+    //Handle exception
+        }
         System.exit(0);
+
     }//GEN-LAST:event_closeButtonActionPerformed
 
     private void RandomButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RandomButtonActionPerformed
         // TODO add your handling code here:
         //MergeSortActivity merge = new MergeSortActivity();
         MergeSortHelper.printInfo();
-        
+
         outputArea.append(MergeSortActivity.randomSets(10));
     }//GEN-LAST:event_RandomButtonActionPerformed
 
