@@ -35,7 +35,7 @@ public class AnalysisFrame extends javax.swing.JFrame {
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.setText("Analysis:\n\nThis application performs the mergesort algorithm on a set of 10, 100, and 1000 arrays as well\nas a set of ten randomly sized and randomly filled arrays.\n\nWhen performing the mergesort on these sets, the expected outpus are 23,460, and 6,907.\nThe actual outputs are 34, 672, 9976 which shows that the algorithm has the same complexity\nbased on the input as n log(n) making the mergesort complexity O(n log(n)).\n\nIn the random test, the limits of array size is from 1 - 10,000 filled randomly with numbers\nranging from 1-100.");
+        jTextArea1.setText("Analysis:\n\nThis application performs the mergesort algorithm on a set of 10, 100, and 1000 arrays as well\nas a set of ten randomly sized and randomly filled arrays.\n\nWhen performing the mergesort on these sets, the expected outpus are 23,460, and 6,907.\nThe actual outputs are 34, 672, 9976 which shows that the algorithm has the same complexity\nbased on the input as n log(n) making the mergesort complexity O(n log(n)).\n\nIn the random test, the limits of array size is from 1 - 10,000 filled randomly with numbers\nranging from 1-100.  The expected average is calculated by averaging the result of the n log n\nfunction.");
         jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -82,7 +82,9 @@ public class AnalysisFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AnalysisFrame().setVisible(true);
+                AnalysisFrame a = new AnalysisFrame();
+                a.setVisible(true);
+                a.setDefaultCloseOperation(HIDE_ON_CLOSE);
             }
         });
     }
