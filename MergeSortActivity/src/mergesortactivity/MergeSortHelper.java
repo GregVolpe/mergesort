@@ -64,20 +64,20 @@ public class MergeSortHelper {
         
     }
     
-    public static void printInfo()
+    public static String printInfo()
     {
         String stuff;
         
         stuff = 
-        "The following application will run a mergesort algorithm on several sets "
-                + "\nof integers.  The first set will have 10 items, the second will"
-                + "\nhave 100 items and the last set will have 1000 items."
+        "\nThe following application will run a mergesort algorithm on "
+                + "\nseveral sets of integers.  The first set will have 10 items, the second"
+                + "\nwill have 100 items and the last set will have 1000 items."
                 + "\n\nThe application will predict the time effeciency of the"
                 + "\nalgorithm which should be approximately O(n log n), as well as"
                 + "\ncalculate the actual effeciency based on the input."
                 + "\n\nThe application will then run a test of 10 random input sizes"
                 + "\nranging from 1-1000 and calculate the average time efficiency.\n\n";
         
-        System.out.println(stuff);
+        return stuff;
     }
 }
