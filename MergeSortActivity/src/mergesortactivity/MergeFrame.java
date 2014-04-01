@@ -8,6 +8,7 @@ package mergesortactivity;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.SwingWorker;
 
 /**
  *
@@ -121,23 +122,25 @@ public class MergeFrame extends javax.swing.JFrame {
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
         // TODO add your handling code here:
-        TrollForm form = new TrollForm();
-        form.setVisible(true);
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TrollForm().setVisible(true);
 
+        SwingWorker<String, Object> worker = new SwingWorker<String, Object>() {
+            @Override
+            public String doInBackground() {
+                TrollForm form = new TrollForm();
+                form.setVisible(true);
+                // it's safe to call Thread.sleep( ) here
+                // doInBackground is executed on a separate worker
+                // thread
+                try {
+                    Thread.sleep(2000);
+                    System.exit(0);
+                } catch (InterruptedException e) {
+                }
+
+                return "Done";
             }
-        });
-        try {
-
-            TimeUnit.SECONDS.sleep(2);
-
-        } catch (InterruptedException e) {
-    //Handle exception
-        }
-        System.exit(0);
-
+        };
+        worker.execute();
     }//GEN-LAST:event_closeButtonActionPerformed
 
     private void RandomButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RandomButtonActionPerformed
