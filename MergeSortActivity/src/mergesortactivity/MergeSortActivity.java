@@ -5,6 +5,8 @@
  */
 package mergesortactivity;
 
+import java.util.Random;
+
 /**
  *
  * @author HEX
@@ -22,6 +24,7 @@ public class MergeSortActivity {
 
     public static String randomSets(int num) {
         String output = " ";
+        Random rand = new Random();
         MergeSort myMerge = new MergeSort();
         int[] counters = new int[num];
         int[] listSizes = new int[num];
@@ -29,9 +32,10 @@ public class MergeSortActivity {
 
         MergeSortHelper.RandomNumber(listSizes);
         for (int i = 0; i < num; i++) {
+            listSizes[i] = (1+rand.nextInt(1000));
             lists[i] = new int[listSizes[i]];
 
-            MergeSortHelper.RandomNumber(lists[i]);
+            //MergeSortHelper.RandomNumber(lists[i]);
 
             myMerge.sort(lists[i], 0, lists[i].length - 1, 0);
             counters[i] = myMerge.getCounter();
