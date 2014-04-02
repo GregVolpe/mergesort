@@ -16,27 +16,21 @@ public class MergeSort {
 
     public MergeSort() {
         compCounter = 0;
-        splitCounter =0;
-        swapCounter = 0;
+        splitCounter = 0;
     }
 
-    public int[] sort(int[] data, int low, int high, int num) {
-        splitCounter = num;
-        splitCounter++;
+    public int[] sort(int[] data, int low, int high) {
         int middle = (high + low) / 2;
         if (low == high) {
             int[] data2 = new int[1];
             data2[0] = data[middle];
-            splitCounter++;
+
             return data2;
         } else {
-            //splitCounter++;
-            int[] firstHalfSorted = sort(data, low, middle, splitCounter);
-            //splitCounter++;
-            int[] secondHalfSorted = sort(data, middle + 1, high,splitCounter);
-            
+            int[] firstHalfSorted = sort(data, low, middle);
+            int[] secondHalfSorted = sort(data, middle + 1, high);
             return (merge(firstHalfSorted, secondHalfSorted));
-            
+
         }
     }
 
@@ -51,18 +45,20 @@ public class MergeSort {
                 SortedArray[count] = secondHalfSorted[n];
                 count++; //counter++;
                 n++;
+                compCounter++;
             } else if (firstHalfSorted[m] <= secondHalfSorted[n]) {
                 SortedArray[count] = firstHalfSorted[m];
                 count++; //counter++;
                 m++;
+                compCounter++;
             }
-            compCounter++;
         }
         if (m != firstHalfSorted.length) {
             while (m < firstHalfSorted.length) {
                 SortedArray[count] = firstHalfSorted[m];
                 count++;
                 m++;
+                compCounter++;
             }
         }
         if (n != secondHalfSorted.length) {
@@ -70,21 +66,24 @@ public class MergeSort {
                 SortedArray[count] = secondHalfSorted[n];
                 count++;
                 n++;
+                compCounter++;
             }
         }
-        
         return SortedArray;
     }
 
     public int getCounter() {
         return this.compCounter;
     }
-    public int getSplitCounter() { return this.splitCounter;}
-    
-    public void clearCounter(){
-        this.compCounter = 0; this.swapCounter =0; this.splitCounter =0;
+
+    public int getSplitCounter() {
+        return this.splitCounter;
     }
-    
- 
+
+    public void clearCounter() {
+        this.compCounter = 0;
+        this.swapCounter = 0;
+        this.splitCounter = 0;
+    }
 
 }
