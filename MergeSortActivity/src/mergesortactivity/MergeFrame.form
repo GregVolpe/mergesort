@@ -24,14 +24,21 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="mainTestButton" max="32767" attributes="0"/>
-                  <Component id="RandomButton" max="32767" attributes="0"/>
-                  <Component id="closeButton" max="32767" attributes="0"/>
-                  <Component id="informationButton" max="32767" attributes="0"/>
-                  <Component id="jButton1" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jButton1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="informationButton" alignment="0" max="32767" attributes="0"/>
+                          <Component id="RandomButton" alignment="0" max="32767" attributes="0"/>
+                          <Component id="mainTestButton" alignment="0" pref="115" max="32767" attributes="0"/>
+                          <Component id="closeButton" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="NumberOfRandom" alignment="1" max="32767" attributes="0"/>
+                  <Component id="jLabel2" alignment="1" pref="0" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
           </Group>
           <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
@@ -40,12 +47,16 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="mainTestButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="RandomButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" pref="38" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="NumberOfRandom" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="informationButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButton1" min="-2" max="-2" attributes="0"/>
@@ -64,6 +75,7 @@
     <Component class="javax.swing.JButton" name="RandomButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Run Random"/>
+        <Property name="toolTipText" type="java.lang.String" value="Click this button to run the random set of array values.  Use the spinner below to set the number of tests, must be below 10,000"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RandomButtonActionPerformed"/>
@@ -72,6 +84,7 @@
     <Component class="javax.swing.JButton" name="mainTestButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Run Main Test"/>
+        <Property name="toolTipText" type="java.lang.String" value="Click this button to run the main test for the application"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mainTestButtonActionPerformed"/>
@@ -80,6 +93,7 @@
     <Component class="javax.swing.JButton" name="closeButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Close"/>
+        <Property name="toolTipText" type="java.lang.String" value="I&apos;ve had enough, get me out of here!"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="closeButtonActionPerformed"/>
@@ -90,6 +104,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/resources/joel.JPG"/>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="The internet is a useful tool!"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -112,6 +127,7 @@
     <Component class="javax.swing.JButton" name="informationButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Information"/>
+        <Property name="toolTipText" type="java.lang.String" value="Information about this application"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="informationButtonActionPerformed"/>
@@ -120,10 +136,23 @@
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Analysis"/>
+        <Property name="toolTipText" type="java.lang.String" value="Analysis of the results from the application (generalized)"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;Number of Random tests to run:&lt;/html&gt;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="NumberOfRandom">
+      <Properties>
+        <Property name="value" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="10" type="code"/>
+        </Property>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

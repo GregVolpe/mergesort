@@ -8,20 +8,27 @@ package mergesortactivity;
 import java.util.Random;
 
 /**
+ * Main activity for the mergesort program
  *
- * @author HEX
+ * @author Greg Volpe
  */
 public class MergeSortActivity {
 
     public static void main(String[] args) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new MergeFrame().setVisible(true);
             }
         });
     }
 
+    /**
+     * Method used to run the random sets program.  Called by the run random test button
+     * @param num number of sets to run
+     * @return 
+     */
     public static String randomSets(int num) {
         String output = " ";
         Random rand = new Random();
