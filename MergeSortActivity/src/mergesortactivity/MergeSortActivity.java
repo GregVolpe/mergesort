@@ -25,13 +25,15 @@ public class MergeSortActivity {
     }
 
     /**
-     * Method used to run the random sets program.  Called by the run random test button
+     * Method used to run the random sets program. Called by the run random test
+     * button
+     *
      * @param num number of sets to run
-     * @return 
+     * @return
      */
-    public static String randomSets(int num) {
+    public static String randomSets(int num, int listSize) {
         String output = " ";
-        Random rand = new Random();
+        //Random rand = new Random();
         MergeSort myMerge = new MergeSort();
         int[] counters = new int[num];
         // int[] expectedCounters = new int[num];
@@ -40,7 +42,7 @@ public class MergeSortActivity {
 
         //MergeSortHelper.RandomNumber(listSizes);
         for (int i = 0; i < num; i++) {
-            listSizes[i] = rand.nextInt(10000);
+            listSizes[i] = listSize;
             lists[i] = new int[listSizes[i]];
 
             MergeSortHelper.RandomNumber(lists[i]);
@@ -145,6 +147,14 @@ public class MergeSortActivity {
         output += ("\nCounter Sorted Descending 1000: "
                 + myMerge.getCounter());
         myMerge.clearCounter();
+
+        output += "\nRandom sets size ten:";
+        output+=randomSets(10, 10);
+        output += "\nRandom sets size One Hundred:";
+        output+=randomSets(10, 100);
+        output += "\nRandom sets size One Thousand:";
+        output+=randomSets(10, 1000);
+
         return output;
     }
 

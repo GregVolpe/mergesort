@@ -70,7 +70,7 @@ public class MergeSort {
                 SortedArray[count] = firstHalfSorted[m];
                 count++;
                 m++;
-                compCounter++;
+                
             }
         }
         if (n != secondHalfSorted.length) {
@@ -78,7 +78,7 @@ public class MergeSort {
                 SortedArray[count] = secondHalfSorted[n];
                 count++;
                 n++;
-                compCounter++;
+                
             }
         }
         return SortedArray;

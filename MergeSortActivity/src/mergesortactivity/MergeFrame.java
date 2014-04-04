@@ -5,6 +5,7 @@
  */
 package mergesortactivity;
 
+import java.util.Random;
 import javax.swing.SwingWorker;
 import static javax.swing.WindowConstants.HIDE_ON_CLOSE;
 
@@ -177,11 +178,12 @@ public class MergeFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         //MergeSortActivity merge = new MergeSortActivity();
         //MergeSortHelper.printInfo();
+        Random rand = new Random();
         int num = (int) NumberOfRandom.getValue();
         if (num > 10000) {
             num = 10000;
         }
-        outputArea.append(MergeSortActivity.randomSets(num));
+        outputArea.append(MergeSortActivity.randomSets(num,rand.nextInt(10000)));
     }//GEN-LAST:event_RandomButtonActionPerformed
 
     private void informationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_informationButtonActionPerformed

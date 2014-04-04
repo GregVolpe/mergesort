@@ -59,7 +59,7 @@ public class MergeSortHelper {
     {
         double result=0;
         
-        result = (num)*(Math.log(num));
+        result = (num)*(Math.log(num)/Math.log(2));
         return result;
         
     }
