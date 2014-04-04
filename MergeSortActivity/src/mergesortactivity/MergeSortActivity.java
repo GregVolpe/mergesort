@@ -42,10 +42,12 @@ public class MergeSortActivity {
 
         //MergeSortHelper.RandomNumber(listSizes);
         for (int i = 0; i < num; i++) {
+
             listSizes[i] = listSize;
+
             lists[i] = new int[listSizes[i]];
 
-            MergeSortHelper.RandomNumber(lists[i]);
+            //MergeSortHelper.RandomNumber(lists[i]);
 
             myMerge.sort(lists[i], 0, lists[i].length - 1);
             counters[i] = myMerge.getCounter();
